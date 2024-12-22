@@ -10,13 +10,13 @@ MATERIAL_VALUE: dict[str, int] = {
     "B": 365,
     "R": 477,
     "Q": 1025,
-    "K": 0,
+    "K": 10,
     "p": -82,
     "n": -337,
     "b": -365,
     "r": -477,
     "q": -1025,
-    "k": 0,
+    "k": -10,
 }
 
 # Positional values from Rofchade:

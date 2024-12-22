@@ -74,7 +74,7 @@ def Chess_bot__starter_submission__Muhammad_Qasim_Shabbir(obs):
 
     # Function to evaluate material value
     def material_value(piece):
-        values = {'P': 1, 'N': 3, 'B': 3, 'R': 5, 'Q': 9, 'K': 0}
+        values = {'P': 1, 'N': 3, 'B': 3, 'R': 5, 'Q': 9, 'K': 10}
         return values.get(piece.upper(), 0)
 
     # Function to evaluate a move

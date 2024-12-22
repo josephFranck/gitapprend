@@ -4,7 +4,7 @@ from Chessnut import Game
 
 
 piece_sym = ['K', 'k', 'Q', 'q', 'R', 'r', 'B', 'b', 'N', 'n', 'P', 'p']
-piece_val = [0, 0, 100, 100, 50, 50, 30, 30, 30, 30, 10, 10]
+piece_val = [150, 150, 100, 100, 50, 50, 30, 30, 30, 30, 10, 10]
 piece_val_dict = dict(zip(piece_sym, piece_val))
 
 

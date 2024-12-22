@@ -11,7 +11,7 @@ def Chess_bot__with_scoring__0I1(obs):
         return None
         
     # Piece values for capture evaluation. Same as in the game
-    values = {'P':1, 'N':3, 'B':3, 'R':5, 'Q':9, 'K':0} # King does not matter here
+    values = {'P':1, 'N':3, 'B':3, 'R':5, 'Q':9, 'K':10} # King does not matter here
     
     best_score = -9999
     best_moves = []
