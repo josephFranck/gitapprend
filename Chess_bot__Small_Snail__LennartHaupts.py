@@ -10,7 +10,7 @@ value_map = {
     "b": 35,   "B": 35,  # Bishops
     "r": 50,   "R": 50,  # Rooks
     "q": 90,   "Q": 90,  # Queens
-    "k": 2000, "K": 2000
+    "k": 200, "K": 200
 }
 
 standard_board_map = {
@@ -63,7 +63,7 @@ board_map = {
     35: standard_board_map,
     50: rook_board_map,
     90: standard_board_map,
-    2000: king_board_map
+    200: king_board_map
 }
 
 def check_for_simple_threat(opponent_moves, cell, piece_value):
@@ -108,6 +108,7 @@ def find_move(game, fen):
 def panic_mode(game, fen):
     # Aaaahhhh! Oh no, I'm running out of time!
     moves = game.get_moves()
+    
     for move in moves:
         game.apply_move(move)
         if game.status == Game.CHECKMATE:
@@ -118,6 +119,8 @@ def panic_mode(game, fen):
 def Chess_bot__Small_Snail__LennartHaupts(obs):
     game = Game(fen=obs.board)  # Intialize the game state with the current FEN
     if obs.remainingOverageTime < 2:
+        if obs.remainingOverageTime < 0.9:
+            return random.choice(game.get_moves())
         return panic_mode(game, obs.board)
 
     # Find the "best" move using the evaluation function

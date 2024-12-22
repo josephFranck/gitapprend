@@ -28,6 +28,8 @@ def Chess_bot__Start_with_strategic_move__FakeOrange(obs):
     game = Game(obs.board)
     moves = list(game.get_moves())
 
+    if obs.remainingOverageTime < 0.5:
+        return random.choice(moves)
     # 1. Check for checkmate
     for move in moves:
         g = Game(obs.board)
@@ -35,12 +37,16 @@ def Chess_bot__Start_with_strategic_move__FakeOrange(obs):
         if g.status == Game.CHECKMATE:
             return move
 
+    if obs.remainingOverageTime < 0.9:
+        return random.choice(moves())
     # 2. Check for valuable captures
     capture_moves = [(move, evaluate_capture(game, move)) for move in moves]
     capture_moves = [m for m in capture_moves if m[1] > 0]  # Filter only capture moves
     if capture_moves:
         return max(capture_moves, key=lambda x: x[1])[0]  # Return the move with the highest capture value
 
+    if obs.remainingOverageTime < 0.5:
+        return random.choice(moves())
     # 3. Check for queen promotions
     promotion_moves = [move for move in moves if "q" in move.lower()]
     if promotion_moves:
